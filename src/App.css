@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+
+@theme {
+  --color-kal-bg: #08090D;
+  --color-kal-surface: #0D111C;
+  --color-kal-card: #151927;
+
+  --color-kal-purple: #7C3AED;
+  --color-kal-purple-dark: #5B21B6;
+
+  --color-kal-gold: #D4AF37;
+  --color-kal-gold-light: #F5D76E;
+
+  --color-kal-text: #F5F3EA;
+  --color-kal-muted: #9CA3AF;
+
+  --color-kal-border: #29233D;
+}
+body{
+    background: #08090D;
+}
