@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { PiFireBold } from "react-icons/pi";
 
 function Header() {
   const [open, setOpen] = useState(false);
@@ -19,8 +20,9 @@ function Header() {
         <button className="hover:bg-gray-400/30 cursor-pointer p-1 rounded text-sm">Setting</button>
       </div>
       <div className="relative flex gap-3">
-        <div className="text-kal-gold text-xs flex items-center justify-center bg-kal-gold-light/20 border rounded-4xl px-4">
-          Streak
+        <div className="text-kal-gold text-xs flex items-center justify-center gap-2 bg-kal-gold-light/20 border rounded-4xl px-2">
+        <PiFireBold />
+          STREAK
         </div>
         <div
           onClick={() => openMenu()}
