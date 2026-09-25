@@ -17,6 +17,22 @@
 
   --color-kal-border: #29233D;
 }
-body{
-    background: #08090D;
+body {
+  margin: 0;
+
+  background:
+    radial-gradient(
+      circle at 75% 45%,
+      rgba(88, 28, 135, 0.35) 0%,
+      rgba(49, 16, 78, 0.20) 35%,
+      rgba(9, 9, 11, 0) 70%
+    ),
+    linear-gradient(
+      to right,
+      #09090b,
+      #1a1028,
+      #09090b
+    );
+
+  color: white;
 }
