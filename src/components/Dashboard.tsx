@@ -1,6 +1,12 @@
 import React from "react";
 import { RiArrowRightLine } from "react-icons/ri";
 import { CgInfo } from "react-icons/cg";
+import { AiOutlineThunderbolt } from "react-icons/ai";
+import { GiBullseye } from "react-icons/gi";
+import { RiFocus2Fill } from "react-icons/ri";
+import { FaArrowTrendUp } from "react-icons/fa6";
+import { LuTicketCheck } from "react-icons/lu";
+import { MdOutlineNightlight } from "react-icons/md";
 
 function Dashboard() {
   return (
@@ -69,6 +75,78 @@ function Dashboard() {
                 <span>+</span>
                 <span>296</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="m-14 py-8">
+        <div className="text-white my-6 w-full">
+          <div className="w-fit p-2 rounded-4xl flex items-center gap-2 font-bold border border-kal-gold">
+            <div className="p-1 bg-kal-gold h-fit rounded-full"></div>
+            <h2 className="text-kal-gold text-[10px] font-mono ">
+              TRI-PHASE TRAINING
+            </h2>
+          </div>
+          <div className="flex justify-between items-center">
+            <h1 className="text-4xl  font-bold w-1/2">
+              Engineered for Quant Performance
+            </h1>
+            <p className="font-bold text-sm my-4 w-[500px]">
+              A high-cadence execution framework designed to transition
+              conscious calculations into automatic muscular memory.
+            </p>
+          </div>
+        </div>
+        <div className="grid grid-cols-3 my-4 gap-2">
+          <div className="bg-gray-900 p-4 rounded-xl">
+            <div className="bg-violet-500/20 p-2 w-fit rounded shadow-[0px_0px_2px_violet]">
+              <AiOutlineThunderbolt />
+            </div>
+            <h1 className="my-4 font-bold">
+              SPEED <span className="text-gray-500 ml-2 text-[10px]">/01</span>
+            </h1>
+            <p className="text-sm font-sans">
+              Improve calculation time with adaptive rapid- fire sessions and
+              live micro-second latency feedback loops.
+            </p>
+            <div className="flex text-[10px] items-center justify-between mt-4 border-t border-gray-600/30 pt-2">
+              <p className="my-2">SUB SECOND PACING</p>
+              <FaArrowTrendUp />
+            </div>
+          </div>
+          <div className="bg-gray-900 p-4 rounded-xl">
+            <div className="bg-violet-500/20 p-2 w-fit rounded shadow-[0px_0px_2px_violet]">
+              <GiBullseye />
+            </div>
+            <h1 className="my-4 font-bold">
+              {" "}
+              ACCURACY <span className="text-gray-500 text-[10px]">/02</span>
+            </h1>
+            <p className="text-sm font-sans">
+              Reduce mistakes systematically throgh algorithmspacd repetitionand
+              physical atribumetic decomposition.
+            </p>
+            <div className="flex text-[10px] items-center justify-between mt-4 border-t border-gray-600/30 pt-2">
+              <p className="my-2">TARGET 99.4% CEILING</p>
+              <LuTicketCheck />
+            </div>
+          </div>
+          <div className="bg-gray-900 p-4 rounded-xl">
+            <div className="bg-violet-500/20 p-2 w-fit rounded shadow-[0px_0px_2px_violet]">
+              <RiFocus2Fill />
+            </div>
+            <h1 className="my-4 font-bold">
+              {" "}
+              FOCUS <span className="text-gray-500 text-[10px]">/03</span>
+            </h1>
+            <p className="text-sm font-sans">
+              Train your mental calculation capability within a zero-distraction
+              dark terminal engineered for uninterrupted flow.
+            </p>
+            <div className="flex text-[10px] items-center justify-between mt-4 border-t border-gray-600/30 pt-2">
+              <p className="my-2">ZERO VISUAL DRAG</p>
+              <MdOutlineNightlight />
             </div>
           </div>
         </div>
