@@ -7,6 +7,7 @@ import { RiFocus2Fill } from "react-icons/ri";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { LuTicketCheck } from "react-icons/lu";
 import { MdOutlineNightlight } from "react-icons/md";
+import ArenaIgnition from "./Arena_ignition";
 
 function Dashboard() {
   return (
@@ -80,7 +81,7 @@ function Dashboard() {
         </div>
       </div>
 
-      <div className="m-14 py-8">
+      <div className="shadow-[0px_0px_30px_black_inset] rounded-2xl px-6 m-14 py-8">
         <div className="text-white my-6 w-full">
           <div className="w-fit p-2 rounded-4xl flex items-center gap-2 font-bold border border-kal-gold">
             <div className="p-1 bg-kal-gold h-fit rounded-full"></div>
@@ -151,6 +152,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
+      <ArenaIgnition />
     </div>
   );
 }
