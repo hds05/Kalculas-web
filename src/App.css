@@ -36,3 +36,16 @@ body {
 
   color: white;
 }
+
+.blinking{
+    animation: blinking 1s alternate infinite;
+    border-radius: 100%;
+}
+@keyframes blinking {
+    from{
+        background: #e0dede;
+    }
+    to{
+        background: #012166;
+    }
+}
