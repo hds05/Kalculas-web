@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { PiFireBold } from "react-icons/pi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Header() {
   const [open, setOpen] = useState(false);
   function openMenu() {
     setOpen((prev) => !prev);
   }
+  const location = useLocation();
+  const practiceActive =
+    location.pathname === "/practiceSetup" ||
+    location.pathname === "/questions";
   return (
     <div className=" flex justify-between items-center bg-black p-4 rounded-[0_0_20px_20px]">
       {/* <h1 className="text-white font-extrabold">Kalculas</h1> */}
@@ -15,10 +19,10 @@ function Header() {
         <img src="kalculas_icon_logo.png" width={"40px"} alt="" />
         <h1 className="text-white text-xl font-mono">Kalculas</h1>
       </Link>
-      <div className="md:block hidden text-white flex gap-3 bg-[#16161D] rounded-3xl p-2 justify-between">
+      <div className="md:block hidden text-white flex gap-3 bg-[#16161D] rounded p-2 justify-between">
         <Link
           to={"/practiceSetup"}
-          className="hover:bg-gray-400/30 cursor-pointer p-1 rounded text-sm"
+          className={`${practiceActive?"bg-gray-400/30": ""} hover:bg-gray-400/30 cursor-pointer p-1 rounded text-sm`}
         >
           Practice
         </Link>
@@ -49,13 +53,18 @@ function Header() {
               >
                 Dashboard
               </Link>
-              <Link to={"/"} className="hover:bg-violet-500 p-2 rounded-2xl transition hover:shadow-[0px_0px_10px_black] cursor-pointer hover:scale-105 ">
+              <Link
+                to={"/"}
+                className="hover:bg-violet-500 p-2 rounded-2xl transition hover:shadow-[0px_0px_10px_black] cursor-pointer hover:scale-105 "
+              >
                 Progress
               </Link>
-              <Link to={"/"} className="hover:bg-violet-500 p-2 rounded-2xl transition hover:shadow-[0px_0px_10px_black] cursor-pointer hover:scale-105 ">
+              <Link
+                to={"/"}
+                className="hover:bg-violet-500 p-2 rounded-2xl transition hover:shadow-[0px_0px_10px_black] cursor-pointer hover:scale-105 "
+              >
                 Setting
-              </Link >
-              
+              </Link>
             </div>
           </div>
         )}
