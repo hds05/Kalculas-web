@@ -8,6 +8,7 @@ import { FaArrowTrendUp } from "react-icons/fa6";
 import { LuTicketCheck } from "react-icons/lu";
 import { MdOutlineNightlight } from "react-icons/md";
 import ArenaIgnition from "./Arena_ignition";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   return (
@@ -34,9 +35,12 @@ function Dashboard() {
           </p>
 
           <div className="flex gap-4 my-9">
-            <button className="flex justify-center items-center gap-2 font-bold px-4 py-2 bg-[#7C3BEB] text-sm rounded-xl cursor-pointer shadow-[0px_0px_2px_purple]">
+            <Link
+              to={"/practiceSetup"}
+              className="flex justify-center items-center gap-2 font-bold  transition hover:scale-105 hover:shadow-[0px_1px_50px_purple]  px-4 py-2 bg-[#7C3BEB] text-sm rounded-xl cursor-pointer shadow-[0px_0px_2px_purple]"
+            >
               Start Practice <RiArrowRightLine />
-            </button>
+            </Link>
             <div className="relative group inline-block">
               <button
                 className="flex justify-center items-center gap-2 font-bold px-4 py-2
@@ -75,6 +79,12 @@ function Dashboard() {
               <div className="flex gap-8 justify-end">
                 <span>+</span>
                 <span>296</span>
+              </div>
+              <div className="py-2 border-t mt-2">
+                <input
+                  type="number"
+                  className="text-white appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none sgfsg bg-gray-900 w-full rounded-2xl mt-2 focus:outline-violet-500"
+                />
               </div>
             </div>
           </div>
