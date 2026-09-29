@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const keys = [
   ["1", "2", "3"],
@@ -7,18 +8,89 @@ const keys = [
   ["⌫", "0", "✓"],
 ];
 
-function generateQuestion() {
-  const a = Math.floor(Math.random() * 9) + 10;
-  const b = Math.floor(Math.random() * 9) + 10;
-  return { a, b, operator: "+", answer: a + b };
+function generateQuestion(operation: string, numDifficulty: string) {
+  let min;
+  let max;
+  switch (numDifficulty) {
+    case "level-1":
+      min = 1;
+      max = 9;
+      break;
+    case "level-2":
+      min = 10;
+      max = 99;
+      break;
+    case "level-3":
+      min = 100;
+      max = 999;
+      break;
+    case "level-4":
+      min = 1000;
+      max = 9999;
+      break;
+    default:
+      min = 1;
+      max = 9;
+  }
+  const a = Math.floor(Math.random() * (max - min + 1)) + min;
+  const b = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  switch (operation) {
+    case "addition":
+      return {
+        a,
+        b,
+        operator: "+",
+        answer: a + b,
+      };
+    case "subtraction":
+      return {
+        a,
+        b,
+        operator: "-",
+        answer: a - b,
+      };
+    case "multiplication":
+      return {
+        a,
+        b,
+        operator: "x",
+        answer: a * b,
+      };
+    case "division":
+      return {
+        a,
+        b,
+        operator: "÷",
+        answer: a / b,
+      };
+    default:
+      return {
+        a,
+        b,
+        operator: "+",
+        answer: a + b,
+      };
+  }
 }
 
 export default function PracticeScreen() {
-  const [question, setQuestion] = useState(generateQuestion());
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { operation, numDifficulty, numQuestion } = location.state || {};
+
+  console.log("Operation:", operation);
+  console.log("Difficulty:", numDifficulty);
+  console.log("Questions:", numQuestion);
+
+  const [question, setQuestion] = useState(
+    generateQuestion(operation, numDifficulty),
+  );
   const [input, setInput] = useState("");
   const [previous, setPrevious] = useState<null | {
     a: number;
     b: number;
+    operator: string;
     answer: number;
     userAnswer: string;
   }>(null);
@@ -31,23 +103,48 @@ export default function PracticeScreen() {
         setInput((v) => v.slice(0, -1));
       } else if (key === "✓" || key === "Enter") {
         if (!input) return;
-        setPrevious({ ...question, userAnswer: input });
-        setTotal((t) => t + 1);
-        if (parseInt(input) === question.answer) setCorrect((c) => c + 1);
+
+        setPrevious({
+          ...question,
+          userAnswer: input,
+        });
+
+        const nextTotal = total + 1;
+        const isAnswerCorrect = parseInt(input) === question.answer;
+
+        setTotal(nextTotal);
+
+        if (isAnswerCorrect) {
+          setCorrect((c) => c + 1);
+        }
+
         setInput("");
-        setQuestion(generateQuestion());
+
+        if (nextTotal < numQuestion) {
+          setQuestion(generateQuestion(operation, numDifficulty));
+        } else {
+          navigate("/", {
+            state: {
+              correct: isAnswerCorrect ? correct + 1 : correct,
+              total: nextTotal,
+              numQuestion,
+              operation,
+              numDifficulty,
+            },
+          });
+        }
       } else if (/^\d$/.test(key) && input.length < 7) {
         setInput((v) => v + key);
       } else if (key === " ") {
         // skip
         setPrevious({ ...question, userAnswer: "—" });
         setInput("");
-        setQuestion(generateQuestion());
+        setQuestion(generateQuestion(operation, numDifficulty));
       } else if (key === "Delete") {
         setInput("");
       }
     },
-    [input, question],
+    [input, question, operation, numDifficulty],
   );
 
   useEffect(() => {
@@ -78,14 +175,14 @@ export default function PracticeScreen() {
             <span>
               🧠 Questions{" "}
               <span className="text-purple-400 font-bold">{total}</span> /{" "}
-              <span className="text-gray-300">∞</span>
+              <span className="text-gray-300">{numQuestion}</span>
             </span>
           </div>
           {previous && (
             <span className="text-center text-xs">
               Previous:{" "}
               <span className="text-gray-300">
-                {previous.a} + {previous.b} ={" "}
+                {previous.a} {previous.operator} {previous.b} ={" "}
               </span>
               <span className="text-purple-300 font-semibold">
                 {previous.answer.toLocaleString()}
@@ -116,7 +213,7 @@ export default function PracticeScreen() {
         <div className="h-[2px] bg-white/5">
           <div
             className="h-full bg-purple-500 transition-all duration-500"
-            style={{ width: `${Math.min((total / 20) * 100, 100)}%` }}
+            style={{ width: `${Math.min((total / numQuestion) * 100, 100)}%` }}
           />
         </div>
 
