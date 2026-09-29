@@ -54,6 +54,12 @@ function Header() {
                 Dashboard
               </Link>
               <Link
+                to={"/practiceSetup"}
+                className="hover:bg-violet-500 p-2 rounded-2xl transition hover:shadow-[0px_0px_10px_black] cursor-pointer hover:scale-105 w-full"
+              >
+                Practice
+              </Link>
+              <Link
                 to={"/"}
                 className="hover:bg-violet-500 p-2 rounded-2xl transition hover:shadow-[0px_0px_10px_black] cursor-pointer hover:scale-105 "
               >

@@ -20,21 +20,21 @@ function Dashboard() {
       <div className="p-4 text-amber-400 font-mono border rounded-4xl w-[300px] text-center cursor-pointer transition transform hover:scale-105 bg-black hover:z-50 hover:shadow-[0px_0px_6px_purple] hover:text-white">
         Train your Calculation Speed.
       </div> */}
-      <div className="m-14 py-8 flex justify-between">
-        <div className="text-white w-1/2">
+      <div className="m-14 py-8 lg:flex justify-between">
+        <div className="text-white lg:w-1/2">
           <div className="w-fit border border-kal-gold p-2 rounded-4xl flex items-center text-xs gap-2 font-bold font-mono">
             <span className="p-1 bg-kal-gold h-fit rounded-full"></span>
             <h2>Mental Math Training</h2>
           </div>
-          <h1 className="text-6xl my-8 font-mono">
-            Train you mind. <br /> Calculate faster.
+          <h1 className="text-3xl font-bold md:font-light md:text-6xl my-8 font-mono">
+            Train you mind.  Calculate faster.
           </h1>
-          <p className="font-bold my-4">
+          <p className="font-bold text-sm md:text-lg my-4">
             Build calculation speed, improve accuracy, and sharpen your mental
             math through focused, high-cadece neuro-athletic practice.
           </p>
 
-          <div className="flex gap-4 my-9">
+          <div className="flex md:flex-row flex-col gap-4 my-9">
             <Link
               to={"/practiceSetup"}
               className="flex justify-center items-center gap-2 font-bold  transition hover:scale-105 hover:shadow-[0px_1px_50px_purple]  px-4 py-2 bg-[#7C3BEB] text-sm rounded-xl cursor-pointer shadow-[0px_0px_2px_purple]"
@@ -43,7 +43,7 @@ function Dashboard() {
             </Link>
             <div className="relative group inline-block">
               <button
-                className="flex justify-center items-center gap-2 font-bold px-4 py-2
+                className="flex w-full md:w-fit justify-center items-center gap-2 font-bold px-4 py-2
                shadow-[0px_0px_2px_purple] bg-indigo-950/30
                text-sm rounded-xl cursor-pointer"
               >
@@ -67,7 +67,7 @@ function Dashboard() {
             </div>
           </div>
         </div>
-        <div className="w-[500px] p-4">
+        <div className="md:w-[500px] p-4">
           <div className="bg-[#050818] shadow-[-1px_-1px_1px_purple] p-6 rounded-4xl">
             <div>
               <span className="text-violet-100 font-bold font-mono p-1 rounded-lg shadow-[0px_0px_5px_violet] bg-violet-950 shadow-[0px_0px_2px_violet-300]">
@@ -91,7 +91,7 @@ function Dashboard() {
         </div>
       </div>
 
-      <div className="shadow-[0px_0px_30px_black_inset] rounded-2xl px-6 m-14 py-8">
+      <div className="shadow-[0px_0px_30px_black_inset] rounded-2xl px-6 md:m-14 py-8">
         <div className="text-white my-6 w-full">
           <div className="w-fit p-2 rounded-4xl flex items-center gap-2 font-bold border border-kal-gold">
             <div className="p-1 bg-kal-gold h-fit rounded-full"></div>
@@ -99,17 +99,17 @@ function Dashboard() {
               TRI-PHASE TRAINING
             </h2>
           </div>
-          <div className="flex justify-between items-center">
-            <h1 className="text-4xl  font-bold w-1/2">
+          <div className="lg:flex justify-between items-center">
+            <h1 className="text-xl font-extrabold md:text-4xl mt-2 md:font-bold w-1/2">
               Engineered for Quant Performance
             </h1>
-            <p className="font-bold text-sm my-4 w-[500px]">
+            <p className="font-bold text-sm my-4 lg:w-[500px]">
               A high-cadence execution framework designed to transition
               conscious calculations into automatic muscular memory.
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-3 my-4 gap-2">
+        <div className="grid md:grid-cols-3 my-4 gap-2">
           <div className="bg-gray-900 p-4 rounded-xl">
             <div className="bg-violet-500/20 p-2 w-fit rounded shadow-[0px_0px_2px_violet]">
               <AiOutlineThunderbolt />
