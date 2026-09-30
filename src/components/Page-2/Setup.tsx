@@ -8,18 +8,18 @@ import { Link } from "react-router-dom";
 
 function Setup() {
   const [operation, setOperation] = useState("addition");
-  const [numbDifficulty, setNumbDifficulty] = useState("None");
+  const [numDifficulty, setNumDifficulty] = useState("level-1");
   const [numQuestion, setNumQuestion] = useState(10);
   return (
     <div className="p-4 flex justify-center items-center flex-col">
       <div className="flex justify-center items-center flex-col gap-4">
-        <p className="text-kal-gold w-fit text-center bg-kal-surface px-4 py-2 text-[10px] rounded-4xl">
+        <p className="text-kal-gold w-fit text-center bg-kal-surface md:px-4 md:py-2 text-[10px] rounded-4xl">
           COGNITIVE CALIBRATION
         </p>
         <h1 className="text-4xl font-extrabold">Set up your practice</h1>
         <p className="text-gray-500">Choose how you want to train.</p>
       </div>
-      <div className="bg-[#1A1B20] my-4 w-1/2 p-8 rounded-xl">
+      <div className="bg-[#1A1B20] my-4 md:w-[70%] p-8 rounded-xl">
         <div className="flex w-full justify-between text-[12px] font-bold font-mono">
           <h5 className="">01 OPERATION MODE</h5>
           {/* <p className="text-gray-400">Multi-select enabled</p> */}
@@ -45,7 +45,7 @@ function Setup() {
           </div>
           <div
             onClick={() => {
-              setOperation("subtration");
+              setOperation("subtraction");
             }}
             className={`${operation === "subtration" ? "bg-kal-purple " : "bg-gray-800"} group hover:bg-kal-purple cursor-pointer p-4 h-[100px] rounded-2xl flex flex-col justify-center items-center`}
           >
@@ -99,26 +99,26 @@ function Setup() {
       <div className="bg-[#1A1B20] w-1/2 p-8 rounded-xl"> */}
         <div className="flex w-full justify-between text-[12px] font-bold font-mono">
           <h5 className="">02 NUMBER DIFFICULTY</h5>
-          <p className="text-kal-gold">Selected: {numbDifficulty}</p>
+          <p className="text-kal-gold">Selected: {numDifficulty}</p>
         </div>
         <div className="grid grid-cols-2 gap-2 md:grid-cols-4 my-6">
           {/* 1 Digit */}
           <div
-            onClick={() => setNumbDifficulty("level-1")}
+            onClick={() => setNumDifficulty("level-1")}
             className={`${
-              numbDifficulty === "level-1" ? "bg-kal-purple" : "bg-gray-800"
+              numDifficulty === "level-1" ? "bg-kal-purple" : "bg-gray-800"
             } group hover:bg-kal-purple cursor-pointer p-4 h-[100px] rounded-2xl flex flex-col justify-center items-center`}
           >
             <p
               className={`${
-                numbDifficulty === "level-1" ? "text-white" : "text-gray-500"
+                numDifficulty === "level-1" ? "text-white" : "text-gray-500"
               } text-xl my-2 group-hover:text-white`}
             >
               1 digit
             </p>
             <p
               className={`${
-                numbDifficulty === "level-1" ? "text-white" : "text-gray-500"
+                numDifficulty === "level-1" ? "text-white" : "text-gray-500"
               } text-xs group-hover:text-white`}
             >
               e.g. 7 + 8
@@ -127,21 +127,21 @@ function Setup() {
 
           {/* 2 Digits */}
           <div
-            onClick={() => setNumbDifficulty("level-2")}
+            onClick={() => setNumDifficulty("level-2")}
             className={`${
-              numbDifficulty === "level-2" ? "bg-kal-purple" : "bg-gray-800"
+              numDifficulty === "level-2" ? "bg-kal-purple" : "bg-gray-800"
             } group hover:bg-kal-purple cursor-pointer p-4 h-[100px] rounded-2xl flex flex-col justify-center items-center`}
           >
             <p
               className={`${
-                numbDifficulty === "level-2" ? "text-white" : "text-gray-500"
+                numDifficulty === "level-2" ? "text-white" : "text-gray-500"
               } text-xl my-2 group-hover:text-white`}
             >
               2 digits
             </p>
             <p
               className={`${
-                numbDifficulty === "level-2" ? "text-white" : "text-gray-500"
+                numDifficulty === "level-2" ? "text-white" : "text-gray-500"
               } text-xs group-hover:text-white`}
             >
               e.g. 42 + 87
@@ -150,14 +150,14 @@ function Setup() {
 
           {/* 3 Digits */}
           <div
-            onClick={() => setNumbDifficulty("level-3")}
+            onClick={() => setNumDifficulty("level-3")}
             className={`${
-              numbDifficulty === "level-3" ? "bg-kal-purple" : "bg-gray-800"
+              numDifficulty === "level-3" ? "bg-kal-purple" : "bg-gray-800"
             } group hover:bg-kal-purple cursor-pointer p-4 h-[100px] rounded-2xl flex flex-col justify-center items-center`}
           >
             <p
               className={`${
-                numbDifficulty === "level-3" ? "text-white" : "text-gray-500"
+                numDifficulty === "level-3" ? "text-white" : "text-gray-500"
               } text-xl my-2 group-hover:text-white`}
             >
               3 digits
@@ -165,7 +165,7 @@ function Setup() {
 
             <p
               className={`${
-                numbDifficulty === "level-3" ? "text-white" : "text-gray-500"
+                numDifficulty === "level-3" ? "text-white" : "text-gray-500"
               } text-xs group-hover:text-white`}
             >
               e.g. 847 + 245
@@ -174,14 +174,14 @@ function Setup() {
 
           {/* 4 Digits */}
           <div
-            onClick={() => setNumbDifficulty("level-4")}
+            onClick={() => setNumDifficulty("level-4")}
             className={`${
-              numbDifficulty === "level-4" ? "bg-kal-purple" : "bg-gray-800"
+              numDifficulty === "level-4" ? "bg-kal-purple" : "bg-gray-800"
             } group hover:bg-kal-purple cursor-pointer p-4 h-[100px] rounded-2xl flex flex-col justify-center items-center`}
           >
             <p
               className={`${
-                numbDifficulty === "level-4" ? "text-white" : "text-gray-500"
+                numDifficulty === "level-4" ? "text-white" : "text-gray-500"
               } text-xl my-2 group-hover:text-white`}
             >
               4 digits
@@ -189,7 +189,7 @@ function Setup() {
 
             <p
               className={`${
-                numbDifficulty === "level-4" ? "text-white" : "text-gray-500"
+                numDifficulty === "level-4" ? "text-white" : "text-gray-500"
               } text-xs group-hover:text-white`}
             >
               e.g. 5374 + 2425
@@ -297,7 +297,12 @@ function Setup() {
         </div>
         <Link
           to={"/questions"}
-          className="flex items-center text-gray-700 hover:text-white transition cursor-pointer hover:shadow-[0px_0px_15px_gray] bg-[#7C3AED] p-4 my-4 w-full rounded-2xl font-extrabold justify-center"
+          state={{
+            operation,
+            numDifficulty,
+            numQuestion,
+          }}
+          className="flex items-center text-violet-300 hover:text-white transition cursor-pointer hover:shadow-[0px_0px_15px_gray] bg-[#7C3AED] p-4 my-4 w-full rounded-2xl font-extrabold justify-center"
         >
           Start Practice <RiArrowRightLine />
         </Link>
