@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { RiArrowRightLine } from "react-icons/ri";
 import { CgInfo } from "react-icons/cg";
 import { AiOutlineThunderbolt } from "react-icons/ai";
@@ -10,7 +10,52 @@ import { MdOutlineNightlight } from "react-icons/md";
 import ArenaIgnition from "./Arena_ignition";
 import { Link } from "react-router-dom";
 
+function generateQuestion() {
+  const digits = Math.floor(Math.random() * 2) + 1;
+
+  const min = digits === 1 ? 1 : 10 ** (digits - 1);
+  const max = 10 ** digits - 1;
+
+  let num1 = Math.floor(Math.random() * (max - min + 1)) + min;
+  let num2 = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  const operation = Math.random() < 0.5 ? "+" : "-";
+
+  // Don't allow negative answers
+  if (operation === "-" && num2 > num1) {
+    [num1, num2] = [num2, num1];
+  }
+  const answer = operation === "+" ? num1 + num2 : num1 - num2;
+  return {
+    num1,
+    num2,
+    operation,
+    answer: operation === "+" ? num1 + num2 : num1 - num2,
+  };
+}
+
 function Dashboard() {
+  const [question, setQuestion] = useState(generateQuestion());
+  const [userAnswer, setUserAnswer] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  function handleAnswer(e: React.ChangeEvent<HTMLInputElement>) {
+    const value = e.target.value;
+
+    setUserAnswer(value);
+
+    if (value === "") {
+      setError("");
+      return;
+    }
+
+    if (Number(value) === question.answer) {
+      setError("");
+      setUserAnswer("");
+      setQuestion(generateQuestion());
+    } else {
+      setError("Wrong answer");
+    }
+  }
   return (
     // <div className="flex flex-col lg:flex-row justify-evenly gap-4">
     <div className="">
@@ -27,7 +72,7 @@ function Dashboard() {
             <h2>Mental Math Training</h2>
           </div>
           <h1 className="text-3xl font-bold md:font-light md:text-6xl my-8 font-mono">
-            Train you mind.  Calculate faster.
+            Train you mind. Calculate faster.
           </h1>
           <p className="font-bold text-sm md:text-lg my-4">
             Build calculation speed, improve accuracy, and sharpen your mental
@@ -75,16 +120,24 @@ function Dashboard() {
               </span>
             </div>
             <div className="my-6 text-white bg-black w-full p-6 rounded-lg text-right text-6xl font-bold">
-              <div>847</div>
+              <div>{question.num1}</div>
+
               <div className="flex gap-8 justify-end">
-                <span>+</span>
-                <span>296</span>
+                <span>{question.operation}</span>
+                <span>{question.num2}</span>
               </div>
               <div className="py-2 border-t mt-2">
                 <input
                   type="number"
-                  className="text-white appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none sgfsg bg-gray-900 w-full rounded-2xl mt-2 focus:outline-violet-500"
+                  value={userAnswer}
+                  onChange={handleAnswer}
+                  className="text-white appearance-none
+    [&::-webkit-inner-spin-button]:appearance-none
+    [&::-webkit-outer-spin-button]:appearance-none
+    bg-gray-900 w-full rounded-2xl mt-2
+    focus:outline-none focus:ring-2 focus:ring-violet-500"
                 />
+                {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
               </div>
             </div>
           </div>
