@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BsLightning } from "react-icons/bs";
 import { FaMinus } from "react-icons/fa6";
 import { IoIosAdd } from "react-icons/io";

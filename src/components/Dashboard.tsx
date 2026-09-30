@@ -30,7 +30,7 @@ function generateQuestion() {
     num1,
     num2,
     operation,
-    answer: operation === "+" ? num1 + num2 : num1 - num2,
+    answer,
   };
 }
 
