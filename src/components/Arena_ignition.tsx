@@ -1,4 +1,5 @@
 import { BiTachometer } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 
 
@@ -15,7 +16,7 @@ function ArenaIgnition() {
           calibrated 60-second diagnostic sprint.
         </p>
         <div>
-          <button className="cursor-pointer text-sm rounded-2xl transition hover:scale-105 hover:shadow-[0px_1px_50px_purple] px-6 py-4 bg-kal-purple flex justify-center items-center gap-4 text-purple-100 font-bold font-mono">Launch Quick Sprint <BiTachometer /></button>
+          <Link to={"/questions"} className="cursor-pointer text-sm rounded-2xl transition hover:scale-105 hover:shadow-[0px_1px_50px_purple] px-6 py-4 bg-kal-purple flex justify-center items-center gap-4 text-purple-100 font-bold font-mono">Launch Quick Sprint <BiTachometer /></Link>
         </div>
       </div>
     </div>
